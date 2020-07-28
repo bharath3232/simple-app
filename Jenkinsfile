@@ -16,6 +16,8 @@ pipeline {
         stage('Upload War To Nexus'){
             steps{
                 script{
+                    def mavenPom = readMavenPom file: 'pom.xml'
+                    def nexusRepoName = mavenPom.version.endsWith("SNAPSHOT") ? "simpleapp-snapshot" : "simpleapp-release"
 
                     
                     nexusArtifactUploader artifacts: [
@@ -26,7 +28,7 @@ pipeline {
                             type: 'war'
                         ]
                     ], 
-                    credentialsId: 'nexus3', 
+                    credentialsId: 'sonar', 
                     groupId: 'in.javahome', 
                     nexusUrl: '3.18.220.38:8081', 
                     nexusVersion: 'nexus3', 
