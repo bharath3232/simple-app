@@ -28,7 +28,7 @@ pipeline {
                             type: 'war'
                         ]
                     ], 
-                    credentialsId: 'sonar', 
+                    credentialsId: 'b4408069-1499-44ba-97ab-fd84e2998697',
                     groupId: 'in.javahome', 
                     nexusUrl: '3.18.220.38:8081', 
                     nexusVersion: 'nexus3', 
