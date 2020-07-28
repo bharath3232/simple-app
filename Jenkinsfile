@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Upload War To Nexus'){
             steps{
-                script{
+               
                     nexusArtifactUploader artifacts: [
                         [
                             artifactId: 'simple-app', 
@@ -31,7 +31,7 @@ pipeline {
                     protocol: 'http', 
                     repository: simple-app, 
                     version: '1.0.0'
-                    }
+                    
             }
         }
     }
